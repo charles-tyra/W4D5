@@ -54,24 +54,10 @@ def largest_contiguous_subsum_O_n(list)
     end
     return max_sum
 end
+
 list = [5, 3, -7]
 p largest_contiguous_subsum_O_n(list) # => 8
 list = [2, 3, -6, 7, -6, 7]
 p largest_contiguous_subsum_O_n(list) # => 8 (from [7, -6, 7])
 list = [-5, -1, -3]
 p largest_contiguous_subsum_O_n(list) # => -1 (from [-1])
-
-#max sum starts at index 0, as does current sum
-
-#current sum += list[i] and if max sum < current, max = current
-
-# if current sum < max sum, current = 0
-#current += current index
-
-
-# current_sum 
-
-# [-3, 2, 6, -5, -7 ,8, 1, -4, 5]
-
-
-# -negative next to negative value < positive
