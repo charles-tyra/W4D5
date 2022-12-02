@@ -30,8 +30,8 @@ def permutations(string)
     total_perms
 end
 
-p first_anagram?("gizmo", "sally")    #=> false
-p first_anagram?("elvis", "lives")    #=> true
+# p first_anagram?("gizmo", "sally")    #=> false
+# p first_anagram?("elvis", "lives")    #=> true
 
 
 def second_anagram?(string, ana)
@@ -49,3 +49,33 @@ p second_anagram?("elvis", "lives")    #=> true
 
 
 def third_anagram?(string, ana)
+    string.split("").sort == ana.split("").sort
+end
+
+p third_anagram?("gizmo", "sally")    #=> false
+p third_anagram?("elvis", "lives")    #=> true
+
+def fourth_anagram?(string, ana)
+    hash1 = Hash.new(0)
+    hash2 = Hash.new(0)
+
+    string.each_char { |char| hash1[char] += 1 }
+    ana.each_char { |char| hash2[char] += 1 }
+
+    hash1 == hash2
+end
+
+p fourth_anagram?("gizmo", "sally")    #=> false
+p fourth_anagram?("elvis", "lives")    #=> true
+
+def bonus_anagram?(string, ana)
+    hash = Hash.new(0)
+
+    string.each_char { |char| hash[char] += 1 }
+    ana.each_char { |char| hash[char] -= 1 }
+
+    hash.values.all?(0)
+end
+
+p bonus_anagram?("gizmo", "sally")    #=> false
+p bonus_anagram?("elvis", "lives")    #=> true
