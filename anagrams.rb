@@ -30,4 +30,22 @@ def permutations(string)
     total_perms
 end
 
-p first_anagram?("chad", "acdh")
+p first_anagram?("gizmo", "sally")    #=> false
+p first_anagram?("elvis", "lives")    #=> true
+
+
+def second_anagram?(string, ana)
+    anaray = ana.split("")
+    string.each_char do |char|
+        idx = anaray.index(char)
+        return false if idx == nil
+        anaray.delete_at(idx)
+    end
+    anaray.length == 0
+end
+
+p second_anagram?("gizmo", "sally")    #=> false
+p second_anagram?("elvis", "lives")    #=> true
+
+
+def third_anagram?(string, ana)
